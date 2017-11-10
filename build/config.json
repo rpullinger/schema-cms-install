@@ -1,0 +1,224 @@
+{
+  "siteName": "Test",
+  "backend": {
+    "provider": "github",
+    "repository": "test/test",
+    "branch": "master"
+  },
+  "auth": {
+    "url": "https://changeme.herokuapp.com"
+  },
+  "shared": {
+    "meta": [
+      {
+        "name": "Page meta",
+        "widget": "group"
+      },
+      {
+        "id": "title",
+        "name": "Title",
+        "widget": "string",
+        "info":
+          "Title tags are a major factor in helping search engines understand what your page is about, and they are the first impression many people have of your page. Google typically displays the first 50–60 characters of a title tag.",
+        "required": true
+      },
+      {
+        "id": "description",
+        "name": "Description",
+        "info":
+          "It's best to keep meta descriptions long enough that they're sufficiently descriptive, but shorter than the 160-character limit. This will also be used for the Facebook share and Twitter card.",
+        "widget": "text",
+        "required": true
+      },
+      {
+        "id": "thumbnail",
+        "name": "Thumbnail",
+        "info":
+          "A page thumnail used for Twitter cards and Facebook shares. The image should work if cropped to a square.",
+        "widget": "relation",
+        "options": {
+          "collection": "media",
+          "valueKey": "name",
+          "emptyState": "No thumbnail selected"
+        }
+      }
+    ]
+  },
+  "collections": [
+    {
+      "id": "media",
+      "name": "image",
+      "plural": "Media",
+      "folder": "public/images",
+      "slug": "name",
+      "listColumns": ["name", "alt"],
+      "fields": [
+        {
+          "id": "name",
+          "name": "Image",
+          "widget": "image",
+          "required": true
+        },
+        {
+          "id": "alt",
+          "name": "Alt text",
+          "widget": "string",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "singles": [
+    {
+      "id": "sink",
+      "name": "Kitchen sink",
+      "folder": "src/data",
+      "fields": [
+        {
+          "id": "string",
+          "name": "String",
+          "widget": "string",
+          "required": true
+        },
+        {
+          "id": "stringprefix",
+          "name": "String with prefix",
+          "widget": "string",
+          "required": true,
+          "options": {
+            "prefix": "@"
+          }
+        },
+        {
+          "id": "select",
+          "name": "Select",
+          "widget": "select",
+          "required": true,
+          "options": {
+            "choices": ["one", "two", "three"]
+          }
+        },
+        {
+          "id": "relationMultipe",
+          "name": "Categories",
+          "widget": "relation",
+          "options": {
+            "allowMultiple": true,
+            "collection": "pages",
+            "valueKey": "name"
+          }
+        },
+        {
+          "id": "relation",
+          "name": "Relation",
+          "widget": "relation",
+          "required": true,
+          "options": {
+            "collection": "pages",
+            "valueKey": "name",
+            "emptyState": "Please select a category"
+          }
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "widget": "relation",
+          "options": {
+            "collection": "media",
+            "valueKey": "name",
+            "emptyState": "No image"
+          }
+        },
+        {
+          "id": "selectWithDefault",
+          "name": "Select with default",
+          "info": "With note",
+          "widget": "select",
+          "required": true,
+          "options": {
+            "choices": ["one", "two", "three"],
+            "default": "two"
+          }
+        },
+        {
+          "id": "booloen",
+          "name": "Booloen",
+          "widget": "booloen"
+        },
+        {
+          "id": "booloenToggledOnDefault",
+          "name": "Booloen toggled on by default",
+          "widget": "booloen",
+          "options": {
+            "default": true
+          }
+        },
+        {
+          "id": "text",
+          "name": "Text",
+          "widget": "text"
+        },
+        {
+          "id": "email",
+          "name": "Email",
+          "widget": "string",
+          "options": {
+            "type": "email"
+          }
+        },
+        {
+          "id": "telephone",
+          "name": "Telephone",
+          "widget": "string",
+          "options": {
+            "type": "tel"
+          }
+        },
+        {
+          "id": "url",
+          "name": "URL",
+          "widget": "string",
+          "options": {
+            "type": "url"
+          }
+        },
+        {
+          "id": "number",
+          "name": "Number",
+          "widget": "number"
+        },
+        {
+          "id": "repeater",
+          "name": "Repeater",
+          "widget": "repeater",
+          "options": {
+            "fields": [
+              {
+                "id": "name",
+                "name": "Name",
+                "widget": "string",
+                "required": true
+              },
+              {
+                "id": "url",
+                "name": "URL",
+                "widget": "string",
+                "required": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "numberWithPrefix",
+          "name": "Number with min, max and step",
+          "widget": "number",
+          "options": {
+            "min": 10,
+            "max": 100,
+            "step": 10
+          }
+        }
+      ]
+    }
+  ]
+}

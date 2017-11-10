@@ -1,0 +1,16 @@
+{
+  "name": "schema-cms-install",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {},
+  "author": "Richard Pullinger <r_pullinger@hotmail.com>",
+  "license": "MIT",
+  "bin": {
+    "schema-cms-install": "./bin/index.js"
+  },
+  "dependencies": {
+    "ncp": "^2.0.0",
+    "open": "^0.0.5",
+    "pushstate-server": "^3.0.1"
+  }
+}
