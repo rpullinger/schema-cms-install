@@ -1,6 +1,6 @@
 {
   "name": "schema-cms-install",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "repository": {},
   "author": "Richard Pullinger <r_pullinger@hotmail.com>",

@@ -1,12 +1,12 @@
 {
-  "siteName": "Test",
+  "siteName": "Demo",
   "backend": {
     "provider": "github",
     "repository": "test/test",
     "branch": "master"
   },
   "auth": {
-    "url": "https://changeme.herokuapp.com"
+    "url": "https://cms-auth.herokuapp.com"
   },
   "shared": {
     "meta": [
@@ -64,6 +64,71 @@
           "name": "Alt text",
           "widget": "string",
           "required": true
+        }
+      ]
+    },
+    {
+      "id": "pages",
+      "name": "Page",
+      "plural": "Pages",
+      "folder": "src/data/pages",
+      "slug": "name",
+      "fields": [
+        {
+          "id": "headline",
+          "name": "Headline",
+          "widget": "string",
+          "info": "A headline for the page.",
+          "required": true
+        },
+        {
+          "id": "lead",
+          "name": "Lead paragraph",
+          "info": "The main lede text for the page. Shown in the page header.",
+          "widget": "text",
+          "required": true
+        },
+        {
+          "id": "content",
+          "name": "Content",
+          "info": "Content for the page.",
+          "widget": "text",
+          "required": true,
+          "options": {
+            "rows": 10
+          }
+        },
+        {
+          "name": "Page meta",
+          "widget": "group"
+        },
+        {
+          "id": "title",
+          "name": "Page title",
+          "widget": "string",
+          "info":
+            "Title tags are a major factor in helping search engines understand what your page is about, and they are the first impression many people have of your page. Google typically displays the first 50–60 characters of a title tag.",
+          "required": true
+        },
+        {
+          "id": "description",
+          "name": "Page description",
+          "info":
+            "It's best to keep meta descriptions long enough that they're sufficiently descriptive, but shorter than the 160-character limit. This will also be used for the Facebook share and Twitter card.",
+          "widget": "text",
+          "required": true
+        },
+        {
+          "id": "thumbnail",
+          "name": "Thumbnail",
+          "info":
+            "A page thumnail used for Twitter cards and Facebook shares. The image should work if cropped to a square.",
+          "widget": "relation",
+          "options": {
+            "collection": "media",
+            "valueKey": "name",
+            "emptyState": "No thumbnail selected"
+          }
         }
       ]
     }
